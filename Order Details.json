@@ -1,0 +1,281 @@
+{
+    "dashboard_name": "Order Details",
+    "data": [
+        {
+            "workbook_name": "Superstore",
+            "workbook_description": "The Superstore workbook is a Tableau workbook that covers various aspects of the company Superstore's operations, including\u00a0sales, products, customers, regions, and categories. The workbook has pre-built dashboards which are Product, Customers, What If Forecast and Order Details.",
+            "dashboard_description": "The Superstore workbook is a Tableau workbook that covers various aspects of the company Superstore's operations, including\u00a0sales, products, customers, regions, and categories. The workbook has pre-built dashboards which are Product, Customers, What If Forecast and Order Details.",
+            "data": {
+                "filters": [
+                    {
+                        "filter_name": "Order Date",
+                        "filter_description": "Allows users to\u00a0focus on order details for a specific order date.",
+                        "filter_type": "range",
+                        "filter_default_value": "All",
+                        "filter_possible_values": NaN,
+                        "filter_data_type": "date",
+                        "filter_min_value": "2020-03-01T00:00:00",
+                        "filter_max_value": "2020-12-30T00:00:00",
+                        "filter_step_for_range": NaN
+                    },
+                    {
+                        "filter_name": "Region",
+                        "filter_description": "Allows users to\u00a0focus on order details for a specific region.",
+                        "filter_type": "non range",
+                        "filter_default_value": "All",
+                        "filter_possible_values": "[\"All\",\"East\",\"West\",\"Central\", \"South\"]",
+                        "filter_data_type": "str",
+                        "filter_min_value": NaN,
+                        "filter_max_value": NaN,
+                        "filter_step_for_range": NaN
+                    },
+                    {
+                        "filter_name": "State/Province",
+                        "filter_description": "Allows users to\u00a0focus on order details for a specific order date.",
+                        "filter_type": "non range",
+                        "filter_default_value": "All",
+                        "filter_possible_values": NaN,
+                        "filter_data_type": "str",
+                        "filter_min_value": NaN,
+                        "filter_max_value": NaN,
+                        "filter_step_for_range": NaN
+                    },
+                    {
+                        "filter_name": "City",
+                        "filter_description": "Allows users to\u00a0focus on order details for a specific city.",
+                        "filter_type": "non range",
+                        "filter_default_value": "All",
+                        "filter_possible_values": NaN,
+                        "filter_data_type": "str",
+                        "filter_min_value": NaN,
+                        "filter_max_value": NaN,
+                        "filter_step_for_range": NaN
+                    },
+                    {
+                        "filter_name": "Category",
+                        "filter_description": "Allows users to\u00a0focus on order details for a specific product category.",
+                        "filter_type": "non range",
+                        "filter_default_value": "All",
+                        "filter_possible_values": "[\"All\", \"Furniture\", \"Office Supplies\"]",
+                        "filter_data_type": "str",
+                        "filter_min_value": NaN,
+                        "filter_max_value": NaN,
+                        "filter_step_for_range": NaN
+                    },
+                    {
+                        "filter_name": "Segment",
+                        "filter_description": "Allows users to\u00a0focus on order details for a specific customer segment.",
+                        "filter_type": "non range",
+                        "filter_default_value": "All",
+                        "filter_possible_values": "[\"All\", \"Consumer\", \"Corporate\" ]",
+                        "filter_data_type": "str",
+                        "filter_min_value": NaN,
+                        "filter_max_value": NaN,
+                        "filter_step_for_range": NaN
+                    }
+                ],
+                "fields": [
+                    {
+                        "sheet_name": "Product Detail Sheet",
+                        "field_name": "Segment",
+                        "field_type": "ColumnField",
+                        "field_description": "Allows users to focus on data and insights for specific customer segments.\nOffers four options:\nAll: Displays data for all customers regardless of segment.\nConsumer: Focuses on customers purchasing for personal use.\nHome Office: Targets customers buying for home office setups.\nCorporate: Analyzes data related to corporate purchases.",
+                        "field_formula": null,
+                        "field_data_type": "STRING",
+                        "fields_used_by_calculation": []
+                    },
+                    {
+                        "sheet_name": "Product Detail Sheet",
+                        "field_name": "Category",
+                        "field_type": "ColumnField",
+                        "field_description": "Allows users to analyze data by product category.\nOffers four options:\nAll: Displays data for all products without category filtering.\nFurniture: Focuses on data related to furniture products.\nOffice Supplies: Analyzes data specific to office supply products.\nTechnology: Targets data associated with technology products.",
+                        "field_formula": null,
+                        "field_data_type": "STRING",
+                        "fields_used_by_calculation": []
+                    },
+                    {
+                        "sheet_name": "Product Detail Sheet",
+                        "field_name": "Profit Ratio",
+                        "field_type": "CalculatedField",
+                        "field_description": "Profit Ratio, calculated as sum([Profit])/sum([Sales]), is a key financial metric used to assess the overall profitability of a business or product category.",
+                        "field_formula": "sum([Profit])/sum([Sales])",
+                        "field_data_type": "REAL",
+                        "fields_used_by_calculation": [
+                            "Profit"
+                        ]
+                    },
+                    {
+                        "sheet_name": "Product Detail Sheet",
+                        "field_name": "Profit Ratio",
+                        "field_type": "CalculatedField",
+                        "field_description": "Profit Ratio, calculated as sum([Profit])/sum([Sales]), is a key financial metric used to assess the overall profitability of a business or product category.",
+                        "field_formula": "sum([Profit])/sum([Sales])",
+                        "field_data_type": "REAL",
+                        "fields_used_by_calculation": [
+                            "Sales"
+                        ]
+                    },
+                    {
+                        "sheet_name": "Product Detail Sheet",
+                        "field_name": "Customer Name",
+                        "field_type": "ColumnField",
+                        "field_description": "Name of the Customer",
+                        "field_formula": null,
+                        "field_data_type": "STRING",
+                        "fields_used_by_calculation": []
+                    },
+                    {
+                        "sheet_name": "Product Detail Sheet",
+                        "field_name": "Ship Date",
+                        "field_type": "ColumnField",
+                        "field_description": "date on which an order is physically shipped from the warehouse and sent to the customer",
+                        "field_formula": null,
+                        "field_data_type": "DATE",
+                        "fields_used_by_calculation": []
+                    },
+                    {
+                        "sheet_name": "Product Detail Sheet",
+                        "field_name": "Discount",
+                        "field_type": "ColumnField",
+                        "field_description": "Discounts offered",
+                        "field_formula": null,
+                        "field_data_type": "REAL",
+                        "fields_used_by_calculation": []
+                    },
+                    {
+                        "sheet_name": "Product Detail Sheet",
+                        "field_name": "Order ID",
+                        "field_type": "ColumnField",
+                        "field_description": "Id of the order",
+                        "field_formula": null,
+                        "field_data_type": "STRING",
+                        "fields_used_by_calculation": []
+                    },
+                    {
+                        "sheet_name": "Product Detail Sheet",
+                        "field_name": "Profit",
+                        "field_type": "ColumnField",
+                        "field_description": "Profit for a specific period",
+                        "field_formula": null,
+                        "field_data_type": "REAL",
+                        "fields_used_by_calculation": []
+                    },
+                    {
+                        "sheet_name": "Product Detail Sheet",
+                        "field_name": "Order Date",
+                        "field_type": "ColumnField",
+                        "field_description": "Order date\u00a0refers to the specific date and time when a customer places an order for a product",
+                        "field_formula": null,
+                        "field_data_type": "DATETIME",
+                        "fields_used_by_calculation": []
+                    },
+                    {
+                        "sheet_name": "Product Detail Sheet",
+                        "field_name": "Order Date",
+                        "field_type": "ColumnField",
+                        "field_description": "Order date\u00a0refers to the specific date and time when a customer places an order for a product",
+                        "field_formula": null,
+                        "field_data_type": "DATE",
+                        "fields_used_by_calculation": []
+                    },
+                    {
+                        "sheet_name": "Product Detail Sheet",
+                        "field_name": "Region",
+                        "field_type": "ColumnField",
+                        "field_description": "\"region\" field  categorizes entities (e.g., customers, orders, sales) into four geographic areas: Central, South, East, West",
+                        "field_formula": null,
+                        "field_data_type": "STRING",
+                        "fields_used_by_calculation": []
+                    },
+                    {
+                        "sheet_name": "Product Detail Sheet",
+                        "field_name": "Sales",
+                        "field_type": "ColumnField",
+                        "field_description": "the sales for the specific period",
+                        "field_formula": null,
+                        "field_data_type": "INTEGER",
+                        "fields_used_by_calculation": []
+                    },
+                    {
+                        "sheet_name": "Product Detail Sheet",
+                        "field_name": "Sales",
+                        "field_type": "ColumnField",
+                        "field_description": "the sales for the specific period",
+                        "field_formula": null,
+                        "field_data_type": "REAL",
+                        "fields_used_by_calculation": []
+                    },
+                    {
+                        "sheet_name": "Product Detail Sheet",
+                        "field_name": "Days to Ship Scheduled",
+                        "field_type": "CalculatedField",
+                        "field_description": "the scheduled number of days to ship the order",
+                        "field_formula": "CASE  [Ship Mode]_x000D_\nWHEN \"Same Day\" THEN 0_x000D_\nWHEN \"First Class\" THEN 1_x000D_\nWHEN \"Second Class\" THEN 3_x000D_\nWHEN \"Standard Class\" THEN 6_x000D_\nEND",
+                        "field_data_type": "INTEGER",
+                        "fields_used_by_calculation": [
+                            "Ship Mode"
+                        ]
+                    },
+                    {
+                        "sheet_name": "Product Detail Sheet",
+                        "field_name": "Ship Mode",
+                        "field_type": "ColumnField",
+                        "field_description": "refers to the mode of shipping",
+                        "field_formula": null,
+                        "field_data_type": "STRING",
+                        "fields_used_by_calculation": []
+                    },
+                    {
+                        "sheet_name": "Product Detail Sheet",
+                        "field_name": "Quantity",
+                        "field_type": "ColumnField",
+                        "field_description": "Quantity of products shipped to the customer",
+                        "field_formula": null,
+                        "field_data_type": "INTEGER",
+                        "fields_used_by_calculation": []
+                    },
+                    {
+                        "sheet_name": "Product Detail Sheet",
+                        "field_name": "City",
+                        "field_type": "ColumnField",
+                        "field_description": "city",
+                        "field_formula": null,
+                        "field_data_type": "STRING",
+                        "fields_used_by_calculation": []
+                    },
+                    {
+                        "sheet_name": "Product Detail Sheet",
+                        "field_name": "Days to Ship Actual",
+                        "field_type": "CalculatedField",
+                        "field_description": "the actual number of days to ship the order",
+                        "field_formula": "DATEDIFF('day',[Order Date],[Ship Date])",
+                        "field_data_type": "INTEGER",
+                        "fields_used_by_calculation": [
+                            "Ship Date"
+                        ]
+                    },
+                    {
+                        "sheet_name": "Product Detail Sheet",
+                        "field_name": "Days to Ship Actual",
+                        "field_type": "CalculatedField",
+                        "field_description": "the actual number of days to ship the order",
+                        "field_formula": "DATEDIFF('day',[Order Date],[Ship Date])",
+                        "field_data_type": "INTEGER",
+                        "fields_used_by_calculation": [
+                            "Order Date"
+                        ]
+                    },
+                    {
+                        "sheet_name": "Product Detail Sheet",
+                        "field_name": "State/Province",
+                        "field_type": "ColumnField",
+                        "field_description": "State/Province",
+                        "field_formula": null,
+                        "field_data_type": "STRING",
+                        "fields_used_by_calculation": []
+                    }
+                ]
+            }
+        }
+    ]
+}
